@@ -1,0 +1,33 @@
+{
+  "name": "openclaw-skill-light-transfer-huangshi",
+  "version": "1.0.0-huangshi",
+  "description": "Light Transfer Skill (Huangshi Edition) - Original workflow with Windows PowerShell usage notes. Direct script invocation recommended.",
+  "main": "scripts/light_transfer_cli.py",
+  "scripts": {
+    "dry-run": "python scripts/light_transfer_cli.py --dry-run",
+    "run": "python scripts/light_transfer_cli.py",
+    "simulate": "python scripts/light_transfer_cli.py --simulate"
+  },
+  "keywords": [
+    "openclaw",
+    "skill",
+    "image-processing",
+    "light-transfer",
+    "runninghub",
+    "ai",
+    "huangshi",
+    "windows"
+  ],
+  "author": "Claw助手",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "peerDependencies": {
+    "openclaw": ">=1.0.0"
+  },
+  "repository": {
+    "type": "local",
+    "url": "file:../../../../.openclaw/workspace/光线迁移"
+  }
+}

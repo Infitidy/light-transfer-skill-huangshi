@@ -1,0 +1,60 @@
+# 光线迁移 - 配置文件示例
+# 复制此文件为 config.yaml 并根据需要修改
+
+workflow:
+  # RunningHub AI 应用 ID（从 URL 提取）
+  # 示例: https://www.runninghub.cn/ai-detail/2037342126949797890
+  workflow_id: "2037342126949797890"
+  base_url: "https://www.runninghub.cn"
+
+paths:
+  # 输入目录
+  pic1_dir: "/home/lee/光线迁移/pic1"   # 主体图片（人物、景物等）
+  pic2_dir: "/home/lee/光线迁移/pic2"   # 光源/光效图片
+
+  # 输出目录（自动按日期子目录归档）
+  output_base: "/home/lee/光线迁移/outputs"
+
+  # 日志目录
+  log_dir: "logs"
+
+  # 脚本目录（通常不需要修改）
+  scripts_dir: "scripts"
+
+processing:
+  # 输出文件扩展名（由 RunningHub 工作流决定，这里仅用于重命名）
+  output_extension: "png"
+
+  # 重试策略
+  max_retries: 3          # 最大重试次数
+  retry_delay: 5          # 重试间隔（秒）
+
+  # 超时设置
+  task_timeout: 600       # 单个任务超时（秒），默认10分钟
+
+  # 频率控制（避免触发 RunningHub 限流）
+  delay_between_tasks: 5  # 任务间隔（秒）
+
+browser:
+  # 注意：当前为纯 API 方案，以下参数保留但未使用
+  cdp_port: 9335
+  headless: false
+
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  datefmt: "%Y-%m-%d %H:%M:%S"
+
+concurrency:
+  enabled: false
+  max_workers: 2  # 并发数，建议保持 1 避免限流
+
+resume:
+  enabled: true
+  state_file: "logs/completed.json"
+
+notifications:
+  enabled: false
+  # webhook_url: "https://your-webhook-url"
+  # on_success: true
+  # on_failure: true
